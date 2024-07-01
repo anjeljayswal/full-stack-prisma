@@ -1,5 +1,6 @@
 // src/app/page.tsx 
 import prisma from "../../lib/prisma";
+import Post from "./components/Post";
 async function getPosts() {
   // console.log(prisma)
   const posts = await prisma.post.findMany({
@@ -14,14 +15,24 @@ async function getPosts() {
 }
 export default async function Home() {
   const posts = await getPosts();
-  console.log(posts);
+  // console.log(posts);
   return (
     <main className="flex min-h-screen flex-col items-center justify-between p-24">
      <div>
       hii,
-      {/* {posts.map((item,index)=>{
-        return <div>{item.id}</div>
-      })} */}
+      {
+        posts.map((post) => {
+          return (
+            <Post
+            key={post.id}
+            id={post.id}
+            title={post.title}
+            content={post.content}
+            authorName={post?.author?.name}
+            />
+          )
+        })
+      }
      </div>
     </main>
   );
