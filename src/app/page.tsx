@@ -1,4 +1,5 @@
 // src/app/page.tsx 
+import Link from "next/link";
 import prisma from "../../lib/prisma";
 import Post from "./components/Post";
 async function getPosts() {
@@ -19,7 +20,9 @@ export default async function Home() {
   return (
     <main className="flex min-h-screen flex-col items-center justify-between p-24">
      <div>
-      hii,
+     <Link href={'/add-post'}>Add Post</Link>
+    
+     <h1>Feed</h1>
       {
         posts.map((post) => {
           return (
