@@ -1,4 +1,4 @@
-// import DeletePostButton from "./DeletePostButton";
+import DeletePostButton from "./DeletePostButton";
 
 import React from 'react';
 
@@ -15,7 +15,7 @@ const Post: React.FC<PostProps> = ({ id, title, content, authorName }) => {
       <h3>{authorName}</h3>
       <h4>{title}</h4>
       <p>{content}</p>
-      {/* <DeletePostButton postId={id} /> */}
+      <DeletePostButton postId={id} />
     </div>
   );
 };
